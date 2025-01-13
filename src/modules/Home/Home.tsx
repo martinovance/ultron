@@ -10,6 +10,7 @@ import {
 } from "@mui/material"
 import Appbar from "@/modules/Home/components/Appbar"
 import Navbar from "@/modules/Home/components/Navbar"
+import Mall from "@/modules/Home/components/Shop"
 
 import Hero1 from "@/assets/Hero1.svg"
 import Hero2 from "@/assets/Hero2.svg"
@@ -292,6 +293,8 @@ function Home() {
           </Card>
         </Grid>
       </Grid>
+
+      <Mall />
     </Box>
   )
 }

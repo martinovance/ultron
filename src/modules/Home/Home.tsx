@@ -11,6 +11,8 @@ import {
 import Appbar from "@/modules/Home/components/Appbar"
 import Navbar from "@/modules/Home/components/Navbar"
 import Mall from "@/modules/Home/components/Shop"
+import ColorTab from "@/modules/Home/components/ColorTab"
+import Testimony from "@/modules/Home/components/Testimony"
 
 import Hero1 from "@/assets/Hero1.svg"
 import Hero2 from "@/assets/Hero2.svg"
@@ -20,7 +22,7 @@ import Hero5 from "@/assets/Hero5.svg"
 
 function Home() {
   return (
-    <Box>
+    <Box sx={{ mb: 5 }}>
       <Appbar />
       <Navbar />
       <Grid
@@ -295,6 +297,8 @@ function Home() {
       </Grid>
 
       <Mall />
+      <ColorTab />
+      <Testimony />
     </Box>
   )
 }

@@ -16,7 +16,9 @@ import { useState } from "react"
 import Chips from "@/shared/Chip/Chips"
 
 function Shop() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    "Shoe"
+  )
   const [isLiked, setIsLiked] = useState<number[]>([])
 
   const handleCategory = (category: string) => {
@@ -89,7 +91,23 @@ function Shop() {
 
       <Grid container spacing={2} sx={{ mt: 0.2 }}>
         {filteredData.map((shoe, index) => (
-          <Grid key={index} item md={index === 2 || index === 3 ? 6 : 3}>
+          <Grid
+            key={index}
+            item
+            md={
+              Math.floor(index / 3) % 2 === 0
+                ? index % 3 === 0
+                  ? 3
+                  : index % 3 === 1
+                    ? 3
+                    : 6
+                : index % 3 === 0
+                  ? 6
+                  : index % 3 === 1
+                    ? 3
+                    : 3
+            }
+          >
             <Card
               sx={{
                 position: "relative",
@@ -146,14 +164,15 @@ function Shop() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-Start",
+                mt: 1,
               }}
             >
               <Typography
                 sx={{
                   font: "Inter",
                   color: "#121212",
-                  fontWeight: "500",
-                  fontSize: "20px",
+                  fontWeight: "550",
+                  fontSize: "18px",
                 }}
               >
                 {shoe.title}

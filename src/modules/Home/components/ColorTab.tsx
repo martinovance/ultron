@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { colors } from "@/constant/colorData"
+import { colors } from "@/constant/ColorData"
 import Chips from "@/shared/Chip/Chips"
 import { Box, Typography } from "@mui/material"
 
-const ColorTab = () => {
+function ColorTab() {
   return (
     <Box
       sx={{

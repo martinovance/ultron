@@ -10,10 +10,12 @@ import Process from "@/modules/Home/components/Process"
 import Blog from "@/modules/Home/components/Blog"
 import Footer from "@/modules/Home/components/Footer"
 import Hero from "@/modules/Home/components/Hero"
+import MobileNav from "./components/MobileNav"
 
 function Home() {
   return (
     <Box>
+      <MobileNav />
       <Appbar />
       <Navbar />
       <Hero />

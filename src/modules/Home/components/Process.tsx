@@ -7,7 +7,7 @@ function Process() {
     <Box
       sx={{
         mt: 5,
-        px: "70px",
+        px: { xs: "16px", sm: "70px" },
       }}
     >
       <Typography
@@ -23,6 +23,7 @@ function Process() {
         {ProcessData.map((item, i) => (
           <Grid
             key={i}
+            sm={4}
             md={4}
             item
             sx={{

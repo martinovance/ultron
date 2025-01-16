@@ -14,9 +14,32 @@ function Navbar() {
         placeContent: "center",
         mt: 7,
         height: "80px",
-        px: "74px",
+        px: { xs: "16px", sm: "70px" },
       }}
     >
+      <InputBase
+        fullWidth
+        placeholder="Search here"
+        sx={{
+          display: { xs: "flex", sm: "none" },
+          height: "30px",
+          color: "#000000",
+          border: "1px solid #000000",
+          borderRadius: 4,
+          pl: 2,
+          flex: 2,
+          opacity: "50%",
+        }}
+        endAdornment={
+          <SearchIcon
+            sx={{
+              mr: 2,
+              color: "#000000",
+              "&:hover": { cursor: "pointer" },
+            }}
+          />
+        }
+      />
       <Box
         sx={{
           display: "flex",
@@ -34,6 +57,7 @@ function Navbar() {
         >
           <Typography
             sx={{
+              display: { xs: "none", md: "flex" },
               fontSize: "24px",
               fontWeight: "800",
             }}
@@ -44,6 +68,7 @@ function Navbar() {
             fullWidth
             placeholder="Search here"
             sx={{
+              display: { xs: "none", sm: "flex" },
               height: "30px",
               color: "#000000",
               border: "1px solid #000000",
@@ -81,7 +106,13 @@ function Navbar() {
               </Typography>
               <KeyboardArrowDownIcon />
             </Button>
-            <Button variant="text" sx={{ color: "#000" }}>
+            <Button
+              variant="text"
+              sx={{
+                display: { xs: "none", md: "flex" },
+                color: "#000",
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: "13px",
@@ -91,7 +122,13 @@ function Navbar() {
                 Gift Cards
               </Typography>
             </Button>
-            <Button variant="text" sx={{ color: "#000" }}>
+            <Button
+              variant="text"
+              sx={{
+                display: { xs: "none", md: "flex" },
+                color: "#000",
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: "13px",
@@ -108,7 +145,7 @@ function Navbar() {
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: "36px",
+            gap: { xs: "8px", sm: "36px" },
           }}
         >
           <Heart />

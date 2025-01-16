@@ -8,10 +8,11 @@ function ColorTab() {
     <Box
       sx={{
         display: "flex",
+        flexDirection: { xs: "column", sm: "row" },
         justifyContent: "flex-start",
-        alignItems: "center",
-        gap: "10rem",
-        px: "70px",
+        alignItems: { xs: "flex-start", sm: "center" },
+        gap: { xs: "16px", md: "10rem" },
+        px: { xs: "16px", sm: "70px" },
         mt: 5,
       }}
     >
@@ -32,7 +33,7 @@ function ColorTab() {
           alignItems: "flex-start",
           gap: "4px",
           rowGap: "4px",
-          width: "550px",
+          width: { xs: "100%", sm: "550px" },
         }}
       >
         {colors.map((item, i) => (

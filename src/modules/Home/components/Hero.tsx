@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material"
 
+import Hero0 from "@/assets/Hero0.svg"
 import Hero1 from "@/assets/Hero1.svg"
 import Hero2 from "@/assets/Hero2.svg"
 import Hero3 from "@/assets/Hero3.svg"
@@ -17,40 +18,52 @@ import Hero5 from "@/assets/Hero5.svg"
 
 function Hero() {
   return (
-    <Box>
+    <Box
+      sx={{
+        px: { xs: "16px", sm: "70px" },
+      }}
+    >
       <Grid
         container
         spacing={2}
         sx={{
-          px: "70px",
           height: "100%",
         }}
       >
-        <Grid item md={8}>
+        <Grid item xs={12} md={8}>
           <Card
             sx={{
-              borderRadius: "36px",
-              height: "100%",
+              borderRadius: { xs: "24px", sm: "36px" },
+              height: { xs: "656px", sm: "100%" },
               position: "relative",
             }}
           >
             <CardMedia
               component="img"
+              src={Hero0}
+              alt="image"
+              sx={{
+                display: { xs: "flex", sm: "none" },
+                height: "50%",
+              }}
+            />
+            <CardMedia
+              component="img"
               src={Hero1}
               alt="image"
-              sx={{ height: "100%" }}
+              sx={{ height: { xs: "50%", sm: "100%" } }}
             />
             <CardContent
               sx={{
                 position: "absolute",
-                top: 70,
-                left: 20,
+                top: { xs: 20, md: 70 },
+                left: { xs: 10, md: 20 },
               }}
             >
               <Typography
                 sx={{
                   font: "Inter",
-                  fontSize: "60px",
+                  fontSize: { xs: "50px", md: "60px" },
                   fontWeight: "medium",
                   color: "#fff",
                   lineHeight: 1.0,
@@ -89,7 +102,7 @@ function Hero() {
         </Grid>
         <Grid
           container
-          spacing={3}
+          spacing={1}
           item
           xs={12}
           md={4}
@@ -97,11 +110,11 @@ function Hero() {
             height: "100%",
           }}
         >
-          <Grid item sm={6} md={12}>
+          <Grid item xs={6} md={12}>
             <Card
               sx={{
                 position: "relative",
-                borderRadius: "36px",
+                borderRadius: { xs: "24px", sm: "36px" },
                 // height: "100%",
               }}
             >
@@ -109,14 +122,14 @@ function Hero() {
               <CardContent
                 sx={{
                   position: "absolute",
-                  top: 15,
-                  left: 5,
+                  top: { xs: 0, sm: 15 },
+                  left: { xs: 0, sm: 5 },
                 }}
               >
                 <Typography
                   sx={{
                     font: "Inter",
-                    fontSize: "35px",
+                    fontSize: { xs: "14px", sm: "35px" },
                     fontWeight: "medium",
                     color: "#000",
                     lineHeight: 1.0,
@@ -128,11 +141,11 @@ function Hero() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item sm={6} md={12}>
+          <Grid item xs={6} md={12}>
             <Card
               sx={{
                 position: "relative",
-                borderRadius: "36px",
+                borderRadius: { xs: "24px", sm: "36px" },
                 // height: "100%",
               }}
             >
@@ -140,14 +153,14 @@ function Hero() {
               <CardContent
                 sx={{
                   position: "absolute",
-                  top: 15,
-                  left: 5,
+                  top: { xs: 0, sm: 15 },
+                  left: { xs: 0, sm: 5 },
                 }}
               >
                 <Typography
                   sx={{
                     font: "Inter",
-                    fontSize: "35px",
+                    fontSize: { xs: "14px", sm: "35px" },
                     fontWeight: "medium",
                     color: "#000",
                     lineHeight: 1.0,
@@ -161,16 +174,16 @@ function Hero() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container spacing={2} sx={{ px: "70px", mt: 1 }}>
-        <Grid item md={3}>
+      <Grid container spacing={2} sx={{ mt: 1 }}>
+        <Grid item sm={6} md={3}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
+              justifyContent: { xs: "flex-start", sm: "space-between" },
               alignItems: "flex-start",
-              gap: "8px",
-              height: "300px",
+              gap: { xs: "24px", sm: "8px" },
+              height: { xs: "100%", sm: "300px" },
             }}
           >
             <Typography
@@ -191,6 +204,7 @@ function Hero() {
                 fontSize: "16px",
                 fontWeight: "medium",
                 color: "#000",
+                mb: { xs: 0, sm: 5 },
               }}
             >
               Our favorite combinations for casual outfit that can inspire you
@@ -202,7 +216,7 @@ function Hero() {
                 mb: 5,
                 borderColor: "#000",
                 color: "#000",
-                width: "230px",
+                width: "100%",
                 textTransform: "uppercase",
                 borderRadius: "50px",
               }}
@@ -211,12 +225,12 @@ function Hero() {
             </Button>
           </Box>
         </Grid>
-        <Grid item sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Card
             sx={{
               position: "relative",
               borderRadius: "36px",
-              height: "300px",
+              height: { sm: "300px", md: "350px" },
             }}
           >
             <CardMedia
@@ -249,12 +263,12 @@ function Hero() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item sm={6} md={5}>
+        <Grid item xs={12} md={5}>
           <Card
             sx={{
               position: "relative",
               borderRadius: "36px",
-              height: "300px",
+              height: { sm: "450px", md: "350px" },
             }}
           >
             <CardMedia

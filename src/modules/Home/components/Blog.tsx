@@ -7,7 +7,7 @@ function Blog() {
     <Box
       sx={{
         mt: 5,
-        px: "70px",
+        px: { xs: "16px", sm: "70px" },
       }}
     >
       <Typography
@@ -42,8 +42,8 @@ function Blog() {
               flexDirection: "column",
               justifyContent: "space-between",
               alignItems: "flex-start",
-              // gap: "24px",
-              height: "350px",
+              gap: "24px",
+              height: { xs: "100%", sm: "350px" },
             }}
           >
             <Typography

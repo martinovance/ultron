@@ -6,17 +6,19 @@ const Footer = () => {
     <Box
       sx={{
         mt: 5,
-        height: "341px",
+        height: { xs: "100%", md: "341px" },
         bgcolor: "#000",
-        width: "100%",
+        // width: "100%",
       }}
     >
       <Box
         sx={{
-          padding: "40px 70px",
+          padding: { xs: "40px 16px", sm: "40px 70px" },
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           alignItems: "flex-start",
+          gap: "24px",
         }}
       >
         <Box
@@ -60,19 +62,21 @@ const Footer = () => {
           <Box
             sx={{
               display: "flex",
+              flexDirection: { xs: "column", md: "row" },
               justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "8px",
+              alignItems: { xs: "flex-start", md: "center" },
+              gap: "16px",
             }}
           >
             <TextField
               name="email"
               placeholder="Type your email address"
+              fullWidth
               InputProps={{
                 style: {
                   color: "#fff",
                   height: "35px",
-                  width: "240px",
+                  // width: "240px",
                   borderRadius: "50px",
                   border: "1px solid #fff",
                   borderColor: "#fff",
@@ -97,9 +101,10 @@ const Footer = () => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "flex-end",
+            flexWrap: "wrap",
+            justifyContent: { xs: "flex-start", md: "flex-end" },
             alignItems: "flex-start",
-            gap: "5rem",
+            gap: { xs: "36px", sm: "4rem", md: "36px", lg: "10rem" },
           }}
         >
           <Box

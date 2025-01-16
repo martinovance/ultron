@@ -41,14 +41,15 @@ function Shop() {
     <Box
       sx={{
         mt: 5,
-        px: "70px",
+        px: { xs: "16px", sm: "70px" },
       }}
     >
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: { xs: "flex-start", sm: "center" },
         }}
       >
         <Typography
@@ -61,9 +62,13 @@ function Shop() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: { xs: "flex-start", sm: "flex-end" },
             alignItems: "center",
-            gap: "36px",
+            gap: { xs: "16px", md: "36px" },
+            maxWidth: "100%",
+            overflowX: { xs: "scroll", sm: "hidden" },
+            scrollbar: "hidden",
+            height: "60px",
           }}
         >
           {["Shorts", "Hat", "Jackets", "Shoe", "T-Shirt"].map((item, i) => (
@@ -94,6 +99,19 @@ function Shop() {
           <Grid
             key={index}
             item
+            xs={
+              Math.floor(index / 3) % 2 === 0
+                ? index % 3 === 0
+                  ? 6
+                  : index % 3 === 1
+                    ? 6
+                    : 12
+                : index % 3 === 0
+                  ? 12
+                  : index % 3 === 1
+                    ? 6
+                    : 6
+            }
             md={
               Math.floor(index / 3) % 2 === 0
                 ? index % 3 === 0
@@ -111,8 +129,8 @@ function Shop() {
             <Card
               sx={{
                 position: "relative",
-                height: "300px",
-                borderRadius: "36px",
+                height: { xs: "200px", sm: "300px", md: "300px" },
+                borderRadius: { xs: "16px", md: "36px" },
               }}
             >
               <CardMedia

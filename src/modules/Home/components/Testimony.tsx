@@ -1,23 +1,27 @@
 /* eslint-disable prettier/prettier */
-import { Box, Card, Grid, Typography } from "@mui/material"
+import { Avatar, Box, Card, Grid, Typography } from "@mui/material"
 import React from "react"
 import Woman from "@/assets/Woman.svg"
+import WomanAvatar from "@/assets/WomanAvatar.svg"
 
 function Testimony() {
   return (
     <Grid
       sx={{
         width: "100%",
-        px: "70px",
+        px: { xs: "16px", sm: "70px" },
         mt: 5,
       }}
     >
       <Grid item xs={12}>
         <Card
           sx={{
-            height: "500px",
+            height: { xs: "100%", sm: "500px" },
             borderRadius: "36px",
             backgroundImage: `url(${Woman})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
           }}
         >
           <Box
@@ -27,7 +31,7 @@ function Testimony() {
               justifyContent: "space-between",
               alignItems: "flex-start",
               // gap: "4px",
-              padding: "60px",
+              padding: { xs: "32px 16px", sm: "30px 60px" },
             }}
           >
             <Typography
@@ -45,7 +49,7 @@ function Testimony() {
             <Typography
               sx={{
                 font: "Inter",
-                fontSize: "55px",
+                fontSize: { xs: "30px", md: "55px" },
                 fontWeight: "medium",
                 color: "#fff",
                 lineHeight: 1.0,
@@ -71,9 +75,13 @@ function Testimony() {
               come back for another purchase.
             </Typography>
             <Box>
+              <Avatar
+                src={WomanAvatar}
+                alt="image"
+                sx={{ mt: 3, width: 60, height: 60 }}
+              />
               <Typography
                 sx={{
-                  mt: 3,
                   font: "400",
                   fontSize: "24px",
                   fontWeight: "medium",

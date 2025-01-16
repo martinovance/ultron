@@ -6,9 +6,10 @@ function Appbar() {
     <AppBar
       elevation={0}
       sx={{
+        display: { xs: "none", md: "flex" },
         height: "64px",
-        backgroundColor: "white",
-        px: "60px",
+        backgroundColor: "#fff",
+        px: "49px",
         borderBottom: "1px solid rgba(0, 0, 0, 0.5)",
       }}
     >

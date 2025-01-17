@@ -1,9 +1,10 @@
 import { Box } from "@mui/material"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Suspense } from "react"
+import { lazy, Suspense } from "react"
 import Loader from "@/shared/Loader/Loader"
-import Home from "@/modules/Home/Home"
 import "@/App.css"
+
+const Home = lazy(() => import("@/modules/Home/Home"))
 
 function App() {
   return (

@@ -6,6 +6,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Skeleton,
   Typography,
 } from "@mui/material"
 
@@ -15,8 +16,19 @@ import Hero2 from "@/assets/Hero2.svg"
 import Hero3 from "@/assets/Hero3.svg"
 import Hero4 from "@/assets/Hero4.svg"
 import Hero5 from "@/assets/Hero5.svg"
+import { useState } from "react"
 
 function Hero() {
+  const [isLoading, setIsLoading] = useState([true, true, true])
+
+  const handleImageLoad = (index: number) => {
+    setIsLoading((prev) => {
+      const newLoading = [...prev]
+      newLoading[index] = false
+      return newLoading
+    })
+  }
+
   return (
     <Box
       sx={{
@@ -38,6 +50,14 @@ function Hero() {
               position: "relative",
             }}
           >
+            {isLoading[0] && (
+              <Skeleton
+                variant="rectangular"
+                animation="wave"
+                width="100%"
+                height="100%"
+              />
+            )}
             <CardMedia
               component="img"
               src={Hero0}
@@ -46,12 +66,14 @@ function Hero() {
                 display: { xs: "flex", sm: "none" },
                 height: "50%",
               }}
+              onLoad={() => handleImageLoad(0)}
             />
             <CardMedia
               component="img"
               src={Hero1}
               alt="image"
               sx={{ height: { xs: "50%", sm: "100%" } }}
+              onLoad={() => handleImageLoad(0)}
             />
             <CardContent
               sx={{
@@ -118,7 +140,20 @@ function Hero() {
                 // height: "100%",
               }}
             >
-              <CardMedia component="img" src={Hero2} alt="image" />
+              {isLoading[1] && (
+                <Skeleton
+                  variant="rectangular"
+                  animation="wave"
+                  width="100%"
+                  height="100%"
+                />
+              )}
+              <CardMedia
+                component="img"
+                src={Hero2}
+                alt="image"
+                onLoad={() => handleImageLoad(1)}
+              />
               <CardContent
                 sx={{
                   position: "absolute",
@@ -149,6 +184,14 @@ function Hero() {
                 // height: "100%",
               }}
             >
+              {isLoading && (
+                <Skeleton
+                  variant="rectangular"
+                  animation="wave"
+                  width="100%"
+                  height="100%"
+                />
+              )}
               <CardMedia component="img" src={Hero3} alt="image" />
               <CardContent
                 sx={{

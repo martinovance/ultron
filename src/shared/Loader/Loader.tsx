@@ -12,7 +12,7 @@ function Loader() {
         width: "100%",
       }}
     >
-      <CircularProgress />
+      <CircularProgress sx={{ color: "#000" }} />
     </Box>
   )
 }

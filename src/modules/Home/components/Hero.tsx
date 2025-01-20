@@ -50,6 +50,7 @@ function Hero() {
               alt="image"
               src={Hero0}
               effect="blur"
+              visibleByDefault
               style={{
                 borderRadius: "inherit",
                 width: "100%",
@@ -68,6 +69,7 @@ function Hero() {
               alt="image"
               src={Hero1}
               effect="blur"
+              visibleByDefault
               style={{
                 borderRadius: "inherit",
                 width: "100%",
@@ -150,6 +152,7 @@ function Hero() {
                 alt="image"
                 src={Hero2}
                 effect="blur"
+                visibleByDefault
                 style={{
                   borderRadius: "inherit",
                   width: "100%",
@@ -197,6 +200,7 @@ function Hero() {
                 alt="image"
                 src={Hero3}
                 effect="blur"
+                visibleByDefault
                 style={{
                   borderRadius: "inherit",
                   width: "100%",
@@ -297,6 +301,7 @@ function Hero() {
               alt="image"
               src={Hero4}
               effect="blur"
+              visibleByDefault
               style={{
                 borderRadius: "inherit",
                 width: "100%",
@@ -344,6 +349,7 @@ function Hero() {
               alt="image"
               src={Hero5}
               effect="blur"
+              visibleByDefault
               style={{
                 borderRadius: "inherit",
                 width: "100%",

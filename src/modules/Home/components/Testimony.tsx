@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Avatar, Box, Card, Grid, Typography } from "@mui/material"
 import React from "react"
 import Woman from "@/assets/Woman.svg"

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import CallIcon from "@mui/icons-material/Call"
 import CachedIcon from "@mui/icons-material/Cached"

@@ -1,14 +1,4 @@
-/* eslint-disable prettier/prettier */
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Skeleton,
-  Typography,
-} from "@mui/material"
+import { Box, Button, Card, CardContent, Grid, Typography } from "@mui/material"
 
 import Hero0 from "@/assets/Hero0.svg"
 import Hero1 from "@/assets/Hero1.svg"
@@ -16,18 +6,23 @@ import Hero2 from "@/assets/Hero2.svg"
 import Hero3 from "@/assets/Hero3.svg"
 import Hero4 from "@/assets/Hero4.svg"
 import Hero5 from "@/assets/Hero5.svg"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import "react-lazy-load-image-component/src/effects/blur.css"
 
 function Hero() {
-  const [isLoading, setIsLoading] = useState([true, true, true])
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600)
 
-  const handleImageLoad = (index: number) => {
-    setIsLoading((prev) => {
-      const newLoading = [...prev]
-      newLoading[index] = false
-      return newLoading
-    })
-  }
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600)
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <Box
@@ -44,36 +39,46 @@ function Hero() {
       >
         <Grid item xs={12} md={8}>
           <Card
+            elevation={0}
             sx={{
               borderRadius: { xs: "24px", sm: "36px" },
               height: { xs: "656px", sm: "100%" },
               position: "relative",
             }}
           >
-            {isLoading[0] && (
-              <Skeleton
-                variant="rectangular"
-                animation="wave"
-                width="100%"
-                height="100%"
-              />
-            )}
-            <CardMedia
-              component="img"
+            <LazyLoadImage
+              alt="image"
               src={Hero0}
-              alt="image"
-              sx={{
-                display: { xs: "flex", sm: "none" },
+              effect="blur"
+              style={{
+                borderRadius: "inherit",
+                width: "100%",
                 height: "50%",
+                display: isMobile ? "flex" : "none",
+                objectFit: "cover",
               }}
-              onLoad={() => handleImageLoad(0)}
+              wrapperProps={{
+                style: {
+                  transition: "2s",
+                },
+              }}
             />
-            <CardMedia
-              component="img"
-              src={Hero1}
+
+            <LazyLoadImage
               alt="image"
-              sx={{ height: { xs: "50%", sm: "100%" } }}
-              onLoad={() => handleImageLoad(0)}
+              src={Hero1}
+              effect="blur"
+              style={{
+                borderRadius: "inherit",
+                width: "100%",
+                height: isMobile ? "50%" : "100%",
+                objectFit: "cover",
+              }}
+              wrapperProps={{
+                style: {
+                  transition: "1s",
+                },
+              }}
             />
             <CardContent
               sx={{
@@ -134,25 +139,28 @@ function Hero() {
         >
           <Grid item xs={6} md={12}>
             <Card
+              elevation={0}
               sx={{
                 position: "relative",
                 borderRadius: { xs: "24px", sm: "36px" },
-                // height: "100%",
+                height: "100%",
               }}
             >
-              {isLoading[1] && (
-                <Skeleton
-                  variant="rectangular"
-                  animation="wave"
-                  width="100%"
-                  height="100%"
-                />
-              )}
-              <CardMedia
-                component="img"
-                src={Hero2}
+              <LazyLoadImage
                 alt="image"
-                onLoad={() => handleImageLoad(1)}
+                src={Hero2}
+                effect="blur"
+                style={{
+                  borderRadius: "inherit",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+                wrapperProps={{
+                  style: {
+                    transition: "2s",
+                  },
+                }}
               />
               <CardContent
                 sx={{
@@ -178,21 +186,29 @@ function Hero() {
           </Grid>
           <Grid item xs={6} md={12}>
             <Card
+              elevation={0}
               sx={{
                 position: "relative",
                 borderRadius: { xs: "24px", sm: "36px" },
-                // height: "100%",
+                height: "100%",
               }}
             >
-              {isLoading && (
-                <Skeleton
-                  variant="rectangular"
-                  animation="wave"
-                  width="100%"
-                  height="100%"
-                />
-              )}
-              <CardMedia component="img" src={Hero3} alt="image" />
+              <LazyLoadImage
+                alt="image"
+                src={Hero3}
+                effect="blur"
+                style={{
+                  borderRadius: "inherit",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+                wrapperProps={{
+                  style: {
+                    transition: "2s",
+                  },
+                }}
+              />
               <CardContent
                 sx={{
                   position: "absolute",
@@ -270,18 +286,27 @@ function Hero() {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Card
+            elevation={0}
             sx={{
               position: "relative",
               borderRadius: "36px",
               height: { sm: "300px", md: "350px" },
             }}
           >
-            <CardMedia
-              component="img"
-              src={Hero4}
+            <LazyLoadImage
               alt="image"
-              sx={{
+              src={Hero4}
+              effect="blur"
+              style={{
+                borderRadius: "inherit",
+                width: "100%",
                 height: "100%",
+                objectFit: "cover",
+              }}
+              wrapperProps={{
+                style: {
+                  transition: "2s",
+                },
               }}
             />
             <CardContent
@@ -308,18 +333,27 @@ function Hero() {
         </Grid>
         <Grid item xs={12} md={5}>
           <Card
+            elevation={0}
             sx={{
               position: "relative",
               borderRadius: "36px",
               height: { sm: "450px", md: "350px" },
             }}
           >
-            <CardMedia
-              component="img"
-              src={Hero5}
+            <LazyLoadImage
               alt="image"
-              sx={{
+              src={Hero5}
+              effect="blur"
+              style={{
+                borderRadius: "inherit",
+                width: "100%",
                 height: "100%",
+                objectFit: "cover",
+              }}
+              wrapperProps={{
+                style: {
+                  transition: "2s",
+                },
               }}
             />
             <CardContent

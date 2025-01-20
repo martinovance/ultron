@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import Shoe1 from "@/assets/Shoe1.svg"
 import Shoe2 from "@/assets/Shoe2.svg"
 import Shoe3 from "@/assets/Shoe3.svg"

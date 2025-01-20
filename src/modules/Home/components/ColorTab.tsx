@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { colors } from "@/constant/ColorData"
 import Chips from "@/shared/Chip/Chips"
 import { Box, Typography } from "@mui/material"

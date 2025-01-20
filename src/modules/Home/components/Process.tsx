@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { ProcessData } from "@/constant/ProcessData"
 import { Box, Grid, Typography } from "@mui/material"
 

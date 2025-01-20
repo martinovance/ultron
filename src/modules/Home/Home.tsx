@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Box } from "@mui/material"
 
 import Appbar from "@/modules/Home/components/Appbar"

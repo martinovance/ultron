@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Chip, SvgIconProps, SxProps, Theme } from "@mui/material"
 
 interface ChipsProps {

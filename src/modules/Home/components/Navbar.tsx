@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Box, Button, InputBase, Typography } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"

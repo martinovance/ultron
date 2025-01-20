@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material"
 import Blog1 from "@/assets/Blog1.svg"
 

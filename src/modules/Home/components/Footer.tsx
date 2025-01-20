@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Box, Button, TextField, Typography } from "@mui/material"
 
 const Footer = () => {

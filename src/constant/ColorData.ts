@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export const colors = [
   { label: "RED PASTEL", color: "#F28B82" },
   { label: "LIME GREEN", color: "#C0E58E" },

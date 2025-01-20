@@ -1,11 +1,9 @@
-/* eslint-disable prettier/prettier */
 import { ShopData } from "@/constant/ShopData"
 
 import {
   Box,
   Card,
   CardContent,
-  CardMedia,
   Grid,
   IconButton,
   Typography,
@@ -14,6 +12,8 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import { useState } from "react"
 import Chips from "@/shared/Chip/Chips"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import "react-lazy-load-image-component/src/effects/blur.css"
 
 function Shop() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
@@ -133,11 +133,21 @@ function Shop() {
                 borderRadius: { xs: "16px", md: "36px" },
               }}
             >
-              <CardMedia
-                component="img"
+              <LazyLoadImage
                 alt="image"
                 src={shoe.image}
-                height="100%"
+                effect="blur"
+                style={{
+                  borderRadius: "inherit",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+                wrapperProps={{
+                  style: {
+                    transition: "2s",
+                  },
+                }}
               />
               <CardContent
                 sx={{

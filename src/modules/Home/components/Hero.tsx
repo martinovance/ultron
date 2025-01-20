@@ -1,11 +1,12 @@
 import { Box, Button, Card, CardContent, Grid, Typography } from "@mui/material"
 
-import Hero0 from "@/assets/Hero0.svg"
-import Hero1 from "@/assets/Hero1.svg"
-import Hero2 from "@/assets/Hero2.svg"
-import Hero3 from "@/assets/Hero3.svg"
-import Hero4 from "@/assets/Hero4.svg"
-import Hero5 from "@/assets/Hero5.svg"
+import HeroP0 from "@/assets/Images/HeroP0.png"
+import HeroP1 from "@/assets/Images/HeroP1.png"
+import HeroP2 from "@/assets/Images/HeroP2.png"
+import HeroP3 from "@/assets/Images/HeroP3.png"
+import HeroP4 from "@/assets/Images/HeroP4.png"
+import HeroP5 from "@/assets/Images/HeroP5.png"
+
 import { useState, useEffect } from "react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "react-lazy-load-image-component/src/effects/blur.css"
@@ -48,7 +49,7 @@ function Hero() {
           >
             <LazyLoadImage
               alt="image"
-              src={Hero0}
+              src={HeroP0}
               effect="blur"
               visibleByDefault
               style={{
@@ -67,7 +68,7 @@ function Hero() {
 
             <LazyLoadImage
               alt="image"
-              src={Hero1}
+              src={HeroP1}
               effect="blur"
               visibleByDefault
               style={{
@@ -150,9 +151,8 @@ function Hero() {
             >
               <LazyLoadImage
                 alt="image"
-                src={Hero2}
+                src={HeroP2}
                 effect="blur"
-                visibleByDefault
                 style={{
                   borderRadius: "inherit",
                   width: "100%",
@@ -198,9 +198,8 @@ function Hero() {
             >
               <LazyLoadImage
                 alt="image"
-                src={Hero3}
+                src={HeroP3}
                 effect="blur"
-                visibleByDefault
                 style={{
                   borderRadius: "inherit",
                   width: "100%",
@@ -299,9 +298,8 @@ function Hero() {
           >
             <LazyLoadImage
               alt="image"
-              src={Hero4}
+              src={HeroP4}
               effect="blur"
-              visibleByDefault
               style={{
                 borderRadius: "inherit",
                 width: "100%",
@@ -347,9 +345,8 @@ function Hero() {
           >
             <LazyLoadImage
               alt="image"
-              src={Hero5}
+              src={HeroP5}
               effect="blur"
-              visibleByDefault
               style={{
                 borderRadius: "inherit",
                 width: "100%",

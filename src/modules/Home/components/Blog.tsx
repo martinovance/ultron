@@ -1,5 +1,5 @@
 import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material"
-import Blog1 from "@/assets/Blog1.svg"
+import SlideP from "@/assets/Images/SlideP.png"
 
 function Blog() {
   return (
@@ -28,7 +28,7 @@ function Blog() {
           >
             <CardMedia
               component="img"
-              src={Blog1}
+              src={SlideP}
               alt="image"
               sx={{ height: "100%" }}
             />

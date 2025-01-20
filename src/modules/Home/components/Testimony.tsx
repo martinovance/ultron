@@ -1,6 +1,5 @@
 import { Avatar, Box, Card, Grid, Typography } from "@mui/material"
-import React from "react"
-import Woman from "@/assets/Woman.svg"
+import WomanP from "@/assets/Images/WomanP.png"
 import WomanAvatar from "@/assets/WomanAvatar.svg"
 
 function Testimony() {
@@ -17,7 +16,7 @@ function Testimony() {
           sx={{
             height: { xs: "100%", sm: "500px" },
             borderRadius: "36px",
-            backgroundImage: `url(${Woman})`,
+            backgroundImage: `url(${WomanP})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

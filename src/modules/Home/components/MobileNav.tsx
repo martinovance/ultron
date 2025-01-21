@@ -3,41 +3,28 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Typography,
-  Switch,
-  Avatar,
-  Collapse,
   Divider,
   Box,
+  Button,
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
-// import { NavLink } from "react-router-dom"
-
-const menuItems = [
-  { label: "English", link: "/" },
-  { label: "Dollars", link: "/" },
-  { label: "Tracking Packages", link: "/" },
-  { label: "FAQ", link: "/" },
-  { label: "About Us", link: "/" },
-  { label: "Contact Us", link: "/" },
-  { label: "Gift Cards", link: "/" },
-  { label: "Special Events", link: "/" },
-]
 
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const handleDrawerToggle = () => {
-    setMenuOpen(!menuOpen)
+  const onClose = () => {
+    setMenuOpen(false)
   }
 
   return (
-    <Box sx={{ display: { xs: "flex", md: "none" } }}>
+    <Box
+      sx={{
+        display: { xs: "flex", md: "none" },
+        height: "100%",
+      }}
+    >
       <AppBar
         elevation={0}
         sx={{
@@ -63,7 +50,6 @@ function MobileNav() {
             aria-label="menu"
             disableRipple
             disableFocusRipple
-            onClick={handleDrawerToggle}
             sx={{
               color: "#000",
               ":focus": {
@@ -71,57 +57,184 @@ function MobileNav() {
               },
             }}
           >
-            {menuOpen ? <CloseIcon /> : <MenuIcon />}
+            {menuOpen ? (
+              <CloseIcon onClick={onClose} />
+            ) : (
+              <MenuIcon onClick={() => setMenuOpen(true)} />
+            )}
           </IconButton>
         </Toolbar>
       </AppBar>
       <Divider />
 
-      <Collapse in={menuOpen}>
-        <List
+      {menuOpen && (
+        <Box
           sx={{
+            mt: 8,
             width: "100%",
+            transition: "0.5s ease",
+            display: { xs: "flex", md: "none" },
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+            flexDirection: "column",
             height: "100vh",
-            padding: 2,
-            backgroundColor: "#f5f5f5",
+            px: { xs: "8px", sm: "70px" },
           }}
         >
-          {menuItems.map((item, index) => (
-            <ListItem
-              // button
-              key={index}
-              onClick={handleDrawerToggle}
-              // component={NavLink}
-              // to={item.link}
-              // exact
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <Button
+              variant="text"
               sx={{
-                "&.active": {
-                  backgroundColor: "#FCF7FF",
-                  "&:hover": {
-                    color: "default",
-                  },
-                },
+                color: "#000",
               }}
             >
-              <ListItemText primary={item.label} />
-            </ListItem>
-          ))}
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                English
+              </Typography>
+            </Button>
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Dollar
+              </Typography>
+            </Button>
+          </Box>
 
-          <ListItem>
-            <Switch edge="start" />
-            <ListItemText primary="Dark mode" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <Avatar />
-            </ListItemIcon>
-            <ListItemText
-              primary="Rudra Devi"
-              secondary="rudra.devi@gmail.com"
-            />
-          </ListItem>
-        </List>
-      </Collapse>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Gift Card
+              </Typography>
+            </Button>
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Special Events
+              </Typography>
+            </Button>
+          </Box>
+
+          <Box
+            sx={{
+              mt: 2,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "24px",
+              width: "100%",
+            }}
+          >
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Tracking Package
+              </Typography>
+            </Button>
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                FAQs
+              </Typography>
+            </Button>
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                About Us
+              </Typography>
+            </Button>
+            <Button
+              variant="text"
+              sx={{
+                color: "#000",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Contact Us
+              </Typography>
+            </Button>
+          </Box>
+        </Box>
+      )}
     </Box>
   )
 }

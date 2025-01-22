@@ -10,6 +10,7 @@ import {
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
+import Ultron from "@/assets/Images/Ultron.png"
 
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -35,8 +36,10 @@ function MobileNav() {
         }}
       >
         <Toolbar>
+          <img src={Ultron} alt="logo" style={{ height: 30, width: 30 }} />
           <Typography
             sx={{
+              ml: 1,
               fontSize: "24px",
               fontWeight: "800",
               flexGrow: 1,

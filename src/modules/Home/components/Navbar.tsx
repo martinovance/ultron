@@ -5,6 +5,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import { ReactComponent as Heart } from "@/assets/Heart.svg"
 import { ReactComponent as User } from "@/assets/User.svg"
 import { ReactComponent as Cart } from "@/assets/Cart.svg"
+import Ultron from "@/assets/Images/Ultron.png"
 
 function Navbar() {
   return (
@@ -54,15 +55,25 @@ function Navbar() {
             gap: "24px",
           }}
         >
-          <Typography
+          <Box
             sx={{
               display: { xs: "none", md: "flex" },
-              fontSize: "24px",
-              fontWeight: "800",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            ULTRON
-          </Typography>
+            <img src={Ultron} alt="logo" style={{ height: 30, width: 30 }} />
+            <Typography
+              sx={{
+                display: { xs: "none", md: "flex" },
+                fontSize: "24px",
+                fontWeight: "800",
+              }}
+            >
+              ULTRON
+            </Typography>
+          </Box>
           <InputBase
             fullWidth
             placeholder="Search here"

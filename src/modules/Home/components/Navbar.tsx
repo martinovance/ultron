@@ -204,7 +204,7 @@ function Navbar() {
             PaperProps={{
               elevation: 0,
               sx: {
-                width: { xs: "100%", sm: "424px" },
+                width: { xs: "100%", sm: "400px" },
                 minHeight: "350px",
                 overflowY: "hidden",
                 filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
@@ -300,16 +300,16 @@ function Navbar() {
                   justifyContent: "center",
                   alignItems: "center",
                   width: "100%",
-                  gap: 1,
                 }}
               >
                 <Divider sx={{ width: "30%" }} />
                 <Typography
                   sx={{
-                    width: "40%",
+                    minWidth: "40%",
                     color: "#77878F",
                     fontSize: "14px",
                     fontWeight: "400",
+                    textAlign: "center",
                   }}
                 >
                   Don&apos;t have account

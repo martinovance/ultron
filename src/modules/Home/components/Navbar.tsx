@@ -1,4 +1,16 @@
-import { Box, Button, InputBase, Typography } from "@mui/material"
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  InputAdornment,
+  InputBase,
+  InputLabel,
+  Menu,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
@@ -6,8 +18,32 @@ import { ReactComponent as Heart } from "@/assets/Heart.svg"
 import { ReactComponent as User } from "@/assets/User.svg"
 import { ReactComponent as Cart } from "@/assets/Cart.svg"
 import Ultron from "@/assets/Images/Ultron.png"
+import { ChangeEvent, MouseEvent, useState } from "react"
+import { ArrowForward, Visibility, VisibilityOff } from "@mui/icons-material"
 
 function Navbar() {
+  const [anchor, setAnchor] = useState<SVGSVGElement | null>(null)
+  const openPop: boolean = Boolean(anchor)
+  const [showPassword, setShowPassword] = useState<boolean>(false)
+  const [inputValue, setInputValue] = useState<string>("")
+
+  const toggleVisibility = () => {
+    setShowPassword((prev) => !prev)
+  }
+
+  const InputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setInputValue(value)
+  }
+
+  const handleNoteClick = (event: MouseEvent<SVGSVGElement>) => {
+    setAnchor(event.currentTarget)
+  }
+
+  const handleNoteClose = () => {
+    setAnchor(null)
+  }
+
   return (
     <Box
       sx={{
@@ -159,7 +195,140 @@ function Navbar() {
           }}
         >
           <Heart />
-          <User />
+          <User style={{ cursor: "pointer" }} onClick={handleNoteClick} />
+          <Menu
+            anchorEl={anchor}
+            id="login-menu"
+            open={openPop}
+            onClose={handleNoteClose}
+            PaperProps={{
+              elevation: 0,
+              sx: {
+                width: { xs: "100%", sm: "424px" },
+                minHeight: "350px",
+                overflowY: "hidden",
+                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                mt: 5,
+                ml: 8,
+                borderRadius: "16px",
+              },
+            }}
+            transformOrigin={{
+              horizontal: "right",
+              vertical: "top",
+            }}
+            anchorOrigin={{ horizontal: "right", vertical: "top" }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
+                padding: "32px",
+                color: "#FFFFFF",
+                gap: 2,
+                boxSizing: "border-box",
+                "& .MuiOutlinedInput-root": {
+                  height: "44px",
+                  borderRadius: "2px",
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "inherit",
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "inherit",
+                  },
+                },
+              }}
+            >
+              <Typography
+                sx={{ fontWeight: "600", fontSize: "20px", color: "#000" }}
+              >
+                Sign In to your account
+              </Typography>
+              <form style={{ width: "100%" }}>
+                <InputLabel>Email</InputLabel>
+                <TextField name="email" fullWidth />
+                <Stack direction="row" sx={{ mt: 2 }}>
+                  <InputLabel>Password</InputLabel>
+                  <Typography
+                    sx={{
+                      ml: "auto",
+                      fontWeight: "600",
+                      fontSize: "14px",
+                      color: "#A40009",
+                    }}
+                  >
+                    Forgot Password
+                  </Typography>
+                </Stack>
+                <TextField
+                  name="email"
+                  fullWidth
+                  value={inputValue}
+                  type={showPassword ? "text" : "password"}
+                  onChange={InputChange}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={toggleVisibility}>
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </form>
+              <Button
+                fullWidth
+                endIcon={<ArrowForward />}
+                sx={{
+                  bgcolor: "#000",
+                  color: "#fff",
+                  borderRadius: "50px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Login
+              </Button>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                  gap: 1,
+                }}
+              >
+                <Divider sx={{ width: "30%" }} />
+                <Typography
+                  sx={{
+                    width: "40%",
+                    color: "#77878F",
+                    fontSize: "14px",
+                    fontWeight: "400",
+                  }}
+                >
+                  Don&apos;t have account
+                </Typography>
+                <Divider sx={{ width: "30%" }} />
+              </Box>
+              <Button
+                fullWidth
+                sx={{
+                  bgcolor: "#0000001A",
+                  color: "#000",
+                  borderRadius: "50px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Create account
+              </Button>
+            </Box>
+          </Menu>
           <Cart />
         </Box>
       </Box>

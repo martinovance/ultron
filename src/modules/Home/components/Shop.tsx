@@ -14,12 +14,13 @@ import { useState } from "react"
 import Chips from "@/shared/Chip/Chips"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "react-lazy-load-image-component/src/effects/blur.css"
+import { useLikedItems } from "@/hooks/useLikedItems"
 
 function Shop() {
+  const { likedItems, handleLike } = useLikedItems()
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     "Shoe"
   )
-  const [isLiked, setIsLiked] = useState<number[]>([])
 
   const handleCategory = (category: string) => {
     setSelectedCategory(selectedCategory === category ? null : category)
@@ -28,14 +29,6 @@ function Shop() {
   const filteredData = selectedCategory
     ? ShopData.filter((item) => item.category === selectedCategory)
     : ShopData
-
-  const handleLike = (id: number): void => {
-    if (isLiked.includes(id)) {
-      setIsLiked(isLiked.filter((itemId) => itemId !== id))
-    } else {
-      setIsLiked([...isLiked, id])
-    }
-  }
 
   return (
     <Box
@@ -164,13 +157,13 @@ function Shop() {
                     alignItems: "center",
                     height: 30,
                     width: 30,
-                    backgroundColor: isLiked.includes(shoe.id)
+                    backgroundColor: likedItems.includes(shoe.id)
                       ? "#F15353"
                       : "#12121233",
                     borderRadius: "50%",
                     cursor: "pointer",
                     "&:hover": {
-                      backgroundColor: isLiked.includes(shoe.id)
+                      backgroundColor: likedItems.includes(shoe.id)
                         ? "#F15353"
                         : "#12121233",
                     },

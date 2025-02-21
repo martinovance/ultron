@@ -20,12 +20,14 @@ import { ReactComponent as Cart } from "@/assets/Cart.svg"
 import Ultron from "@/assets/Images/Ultron.png"
 import { ChangeEvent, MouseEvent, useState } from "react"
 import { ArrowForward, Visibility, VisibilityOff } from "@mui/icons-material"
+import { useNavigate } from "react-router-dom"
 
 function Navbar() {
   const [anchor, setAnchor] = useState<SVGSVGElement | null>(null)
   const openPop: boolean = Boolean(anchor)
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [inputValue, setInputValue] = useState<string>("")
+  const navigate = useNavigate()
 
   const toggleVisibility = () => {
     setShowPassword((prev) => !prev)
@@ -42,6 +44,10 @@ function Navbar() {
 
   const handleNoteClose = () => {
     setAnchor(null)
+  }
+
+  const handleWishlistNavigate = () => {
+    navigate("/wishlist")
   }
 
   return (
@@ -194,7 +200,10 @@ function Navbar() {
             gap: { xs: "8px", sm: "36px" },
           }}
         >
-          <Heart />
+          <Heart
+            onClick={handleWishlistNavigate}
+            style={{ cursor: "pointer" }}
+          />
           <User style={{ cursor: "pointer" }} onClick={handleNoteClick} />
           <Menu
             anchorEl={anchor}

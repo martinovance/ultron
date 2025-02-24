@@ -18,16 +18,22 @@ import { ReactComponent as Heart } from "@/assets/Heart.svg"
 import { ReactComponent as User } from "@/assets/User.svg"
 import { ReactComponent as Cart } from "@/assets/Cart.svg"
 import Ultron from "@/assets/Images/Ultron.png"
-import { ChangeEvent, MouseEvent, useState } from "react"
+import { ChangeEvent, MouseEvent, useCallback, useState } from "react"
 import { ArrowForward, Visibility, VisibilityOff } from "@mui/icons-material"
 import { useNavigate } from "react-router-dom"
+import useDrawer from "@/hooks/useDrawer"
 
 function Navbar() {
   const [anchor, setAnchor] = useState<SVGSVGElement | null>(null)
   const openPop: boolean = Boolean(anchor)
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [inputValue, setInputValue] = useState<string>("")
+  const [state, setState] = useDrawer()
   const navigate = useNavigate()
+
+  const handleOpenDrawer = useCallback(() => {
+    setState({ ...state, drawerName: "cart" })
+  }, [state])
 
   const toggleVisibility = () => {
     setShowPassword((prev) => !prev)
@@ -338,7 +344,7 @@ function Navbar() {
               </Button>
             </Box>
           </Menu>
-          <Cart />
+          <Cart onClick={handleOpenDrawer} style={{ cursor: "pointer" }} />
         </Box>
       </Box>
     </Box>

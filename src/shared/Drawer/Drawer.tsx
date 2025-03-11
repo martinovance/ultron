@@ -22,7 +22,7 @@ interface drawerProps {
   primaryButton?: string
   secondaryButton?: string
   likedData?: likedData[]
-  handleCheckout: (path: string) => void
+  handleCheckout: () => void
 }
 
 function Drawer({
@@ -148,7 +148,10 @@ function Drawer({
               type="submit"
               variant="contained"
               fullWidth
-              onClick={handleCheckout}
+              onClick={() => {
+                handleCloseDrawer()
+                handleCheckout()
+              }}
               sx={{
                 bgcolor: "#000",
                 borderColor: "#000",

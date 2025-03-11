@@ -22,6 +22,7 @@ interface drawerProps {
   primaryButton?: string
   secondaryButton?: string
   likedData?: likedData[]
+  handleCheckout: (path: string) => void
 }
 
 function Drawer({
@@ -31,6 +32,7 @@ function Drawer({
   primaryButton,
   secondaryButton,
   likedData,
+  handleCheckout,
 }: drawerProps) {
   const [state, setState] = useDrawer()
 
@@ -146,6 +148,7 @@ function Drawer({
               type="submit"
               variant="contained"
               fullWidth
+              onClick={handleCheckout}
               sx={{
                 bgcolor: "#000",
                 borderColor: "#000",

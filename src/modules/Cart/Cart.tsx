@@ -4,10 +4,16 @@ import Drawer from "@/shared/Drawer/Drawer"
 import { CancelOutlined } from "@mui/icons-material"
 import { Box, Divider, Grid, IconButton, Typography } from "@mui/material"
 import { LazyLoadImage } from "react-lazy-load-image-component"
+import { useNavigate } from "react-router-dom"
 
 function CartDrawer() {
   const { likedItems, handleLike } = useLikedItems()
   const likedData = ShopData.filter((item) => likedItems.includes(item.id))
+  const navigate = useNavigate()
+
+  const handleCheckout = () => {
+    navigate("/checkout")
+  }
 
   return (
     <Drawer
@@ -15,6 +21,7 @@ function CartDrawer() {
       titleText="Shopping Cart"
       primaryButton="Checkout"
       likedData={likedData}
+      handleCheckout={handleCheckout}
     >
       <Grid
         container

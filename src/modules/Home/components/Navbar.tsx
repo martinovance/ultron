@@ -20,7 +20,7 @@ import { ReactComponent as Cart } from "@/assets/Cart.svg"
 import Ultron from "@/assets/Images/Ultron.png"
 import { ChangeEvent, MouseEvent, useCallback, useState } from "react"
 import { ArrowForward, Visibility, VisibilityOff } from "@mui/icons-material"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import useDrawer from "@/hooks/useDrawer"
 
 function Navbar() {
@@ -103,25 +103,27 @@ function Navbar() {
             gap: "24px",
           }}
         >
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img src={Ultron} alt="logo" style={{ height: 30, width: 30 }} />
-            <Typography
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-                fontSize: "24px",
-                fontWeight: "800",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              ULTRON
-            </Typography>
-          </Box>
+              <img src={Ultron} alt="logo" style={{ height: 30, width: 30 }} />
+              <Typography
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  fontSize: "24px",
+                  fontWeight: "800",
+                }}
+              >
+                ULTRON
+              </Typography>
+            </Box>
+          </Link>
           <InputBase
             fullWidth
             placeholder="Search here"

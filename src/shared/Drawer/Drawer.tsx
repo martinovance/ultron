@@ -149,8 +149,8 @@ function Drawer({
               variant="contained"
               fullWidth
               onClick={() => {
-                handleCloseDrawer()
                 handleCheckout()
+                handleCloseDrawer()
               }}
               sx={{
                 bgcolor: "#000",

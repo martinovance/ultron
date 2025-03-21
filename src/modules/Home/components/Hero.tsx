@@ -1,7 +1,8 @@
 import { Box, Button, Card, CardContent, Grid, Typography } from "@mui/material"
 
 import HeroP0 from "@/assets/Images/HeroP0.png"
-import HeroP1 from "@/assets/Images/HeroP1.png"
+import NewHeroP1 from "@/assets/Images/NewHeroP1.webp"
+// import HeroP1 from "@/assets/Images/HeroP1.png"
 import HeroP2 from "@/assets/Images/HeroP2.png"
 import HeroP3 from "@/assets/Images/HeroP3.png"
 import HeroP4 from "@/assets/Images/HeroP4.png"
@@ -68,7 +69,7 @@ function Hero() {
 
             <LazyLoadImage
               alt="image"
-              src={HeroP1}
+              src={NewHeroP1}
               effect="blur"
               visibleByDefault
               style={{

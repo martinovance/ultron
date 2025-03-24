@@ -1,5 +1,5 @@
 import { ShopData } from "@/constant/ShopData"
-import { useLikedItems } from "@/hooks/useLikedItems"
+import { useCart } from "@/hooks/useCart"
 import Drawer from "@/shared/Drawer/Drawer"
 import { CancelOutlined } from "@mui/icons-material"
 import { Box, Divider, Grid, IconButton, Typography } from "@mui/material"
@@ -7,9 +7,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component"
 import { useNavigate } from "react-router-dom"
 
 function CartDrawer() {
-  const { likedItems, handleLike } = useLikedItems()
-  const likedData = ShopData.filter((item) => likedItems.includes(item.id))
+  const { cart, removeFromCart } = useCart()
   const navigate = useNavigate()
+
+  const cartData = ShopData.filter((item) =>
+    cart.find((cartItem) => cartItem.id === item.id)
+  )
 
   const handleCheckout = () => {
     navigate("/checkout")
@@ -20,7 +23,7 @@ function CartDrawer() {
       drawerName="cart"
       titleText="Shopping Cart"
       primaryButton="Checkout"
-      likedData={likedData}
+      cartData={cartData}
       handleCheckout={handleCheckout}
     >
       <Grid
@@ -30,7 +33,7 @@ function CartDrawer() {
           width: "100%",
         }}
       >
-        {likedData.map((shoe, index) => (
+        {cartData.map((item, index) => (
           <Grid item key={index} xs={12}>
             <Box
               sx={{
@@ -55,7 +58,7 @@ function CartDrawer() {
               >
                 <LazyLoadImage
                   alt="image"
-                  src={shoe.image}
+                  src={item.image}
                   effect="blur"
                   style={{
                     borderRadius: "4px",
@@ -87,7 +90,7 @@ function CartDrawer() {
                       lineHeight: "25px",
                     }}
                   >
-                    {shoe.title}
+                    {item.title}
                   </Typography>
                   <Typography
                     sx={{
@@ -105,11 +108,15 @@ function CartDrawer() {
                       lineHeight: "25px",
                     }}
                   >
-                    Quantity: <span style={{ color: "#807D7E" }}>1</span>
+                    Quantity:{" "}
+                    <span style={{ color: "#807D7E" }}>
+                      {cart.find((cartItem) => cartItem.id === item.id)
+                        ?.quantity || 0}
+                    </span>
                   </Typography>
                 </Box>
                 <IconButton
-                  onClick={() => handleLike(shoe.id)}
+                  onClick={() => removeFromCart(item.id)}
                   sx={{ display: { xs: "none", sm: "flex" }, ml: "auto" }}
                 >
                   <CancelOutlined />

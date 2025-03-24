@@ -1,9 +1,5 @@
+import { LikedItemsContextType } from "@/types/MarketItemTypes"
 import { createContext, useState, ReactNode, useEffect } from "react"
-
-interface LikedItemsContextType {
-  likedItems: number[]
-  handleLike: (id: number) => void
-}
 
 export const LikedItemsContext = createContext<
   LikedItemsContextType | undefined

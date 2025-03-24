@@ -6,14 +6,7 @@ import Grid from "@mui/material/Grid"
 import { Button, Drawer as MuiDrawer, Stack } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import useDrawer from "@/hooks/useDrawer"
-
-interface likedData {
-  id: number
-  price: string
-  title: string
-  image: string
-  category: string
-}
+import { Product } from "@/types/MarketItemTypes"
 
 interface drawerProps {
   children: React.ReactNode
@@ -21,7 +14,7 @@ interface drawerProps {
   titleText: string
   primaryButton?: string
   secondaryButton?: string
-  likedData?: likedData[]
+  cartData?: Product[]
   handleCheckout: () => void
 }
 
@@ -31,7 +24,7 @@ function Drawer({
   titleText,
   primaryButton,
   secondaryButton,
-  likedData,
+  cartData,
   handleCheckout,
 }: drawerProps) {
   const [state, setState] = useDrawer()
@@ -129,7 +122,7 @@ function Drawer({
                 color: "#1A1A1A",
               }}
             >
-              {likedData?.length} Products
+              {cartData?.length} Products
             </Typography>
             <Typography
               sx={{

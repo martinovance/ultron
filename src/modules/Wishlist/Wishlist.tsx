@@ -7,8 +7,10 @@ import Navbar from "../Home/components/Navbar"
 import Footer from "../Home/components/Footer"
 import { Clear } from "@mui/icons-material"
 import MobileNav from "../Home/components/MobileNav"
+import { useCart } from "@/hooks/useCart"
 
 function Wishlist() {
+  const { addToCart } = useCart()
   const { likedItems, handleLike } = useLikedItems()
   const likedData = ShopData.filter((item) => likedItems.includes(item.id))
 
@@ -41,7 +43,7 @@ function Wishlist() {
               Wishlist
             </Typography>
           </Grid>
-          {likedData.map((shoe, index) => (
+          {likedData.map((item, index) => (
             <Grid item key={index} xs={12}>
               <Box
                 sx={{
@@ -64,14 +66,14 @@ function Wishlist() {
                   }}
                 >
                   <IconButton
-                    onClick={() => handleLike(shoe.id)}
+                    onClick={() => handleLike(item.id)}
                     sx={{ display: { xs: "none", sm: "flex" } }}
                   >
                     <Clear />
                   </IconButton>
                   <LazyLoadImage
                     alt="image"
-                    src={shoe.image}
+                    src={item.image}
                     effect="blur"
                     style={{
                       borderRadius: "4px",
@@ -102,7 +104,7 @@ function Wishlist() {
                         lineHeight: "25px",
                       }}
                     >
-                      {shoe.title}
+                      {item.title}
                     </Typography>
                     <Typography
                       sx={{
@@ -133,8 +135,14 @@ function Wishlist() {
                     width: "100%",
                   }}
                 >
-                  <Typography>{shoe.price}</Typography>
+                  <Typography>${item.price}</Typography>
                   <Button
+                    onClick={() =>
+                      addToCart({
+                        ...item,
+                        quantity: 1,
+                      })
+                    }
                     sx={{
                       ml: { xs: "auto", sm: 0 },
                       width: { xs: "100px", md: "140px" },

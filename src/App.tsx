@@ -8,6 +8,10 @@ import DrawerContextProvider from "./context/drawerContext"
 import CartDrawer from "./modules/Cart/Cart"
 import StripeProvider from "./context/stripeContext"
 import { CartProvider } from "./context/addToCartContext"
+import Appbar from "./modules/Home/components/Appbar"
+import Navbar from "./modules/Home/components/Navbar"
+import Footer from "./modules/Home/components/Footer"
+import MobileNav from "./modules/Home/components/MobileNav"
 
 const Home = lazy(() => import("@/modules/Home/Home"))
 const Wishlist = lazy(() => import("@/modules/Wishlist/Wishlist"))
@@ -21,12 +25,16 @@ function App() {
           <DrawerContextProvider>
             <LikedItemsProvider>
               <BrowserRouter>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <MobileNav />
+                  <Appbar />
+                  <Navbar />
                   <Routes>
                     <Route index element={<Home />} />
                     <Route path="wishlist" element={<Wishlist />} />
                     <Route path="checkout" element={<Payment />} />
                   </Routes>
+                  <Footer />
                   <CartDrawer />
                 </Box>
               </BrowserRouter>

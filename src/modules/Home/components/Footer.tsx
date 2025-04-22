@@ -8,6 +8,7 @@ const Footer = () => {
         height: { xs: "100%", md: "341px" },
         bgcolor: "#000",
         // width: "100%",
+        bottom: 0,
       }}
     >
       <Box

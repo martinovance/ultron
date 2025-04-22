@@ -6,9 +6,6 @@ import {
   MenuItem,
   TextField,
 } from "@mui/material"
-import MobileNav from "../Home/components/MobileNav"
-import Appbar from "../Home/components/Appbar"
-import Navbar from "../Home/components/Navbar"
 import {
   CardCvcElement,
   CardElement,
@@ -90,15 +87,12 @@ const Payment = () => {
   }
   return (
     <>
-      <MobileNav />
-      <Appbar />
-      <Navbar />
       <Box
         sx={{
           display: "flex",
           justifyContent: { xs: "flex-start", sm: "center" },
           alignItems: "center",
-          mt: 2,
+          mt: 20,
           mb: 2,
           px: { xs: "16px", sm: "70px" },
         }}

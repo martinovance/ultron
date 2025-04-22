@@ -7,6 +7,7 @@ import { Button, Drawer as MuiDrawer, Stack } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import useDrawer from "@/hooks/useDrawer"
 import { Product } from "@/types/MarketItemTypes"
+import { useCart } from "@/hooks/useCart"
 
 interface drawerProps {
   children: React.ReactNode
@@ -28,6 +29,7 @@ function Drawer({
   handleCheckout,
 }: drawerProps) {
   const [state, setState] = useDrawer()
+  const { totalPrice } = useCart()
 
   const handleCloseDrawer = () => {
     setState({ ...state, drawerName: "", data: null })
@@ -131,7 +133,7 @@ function Drawer({
                 color: "#1A1A1A",
               }}
             >
-              $26.00
+              ${totalPrice}
             </Typography>
           </Stack>
         </Grid>

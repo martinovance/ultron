@@ -2,17 +2,32 @@ import { ShopData } from "@/constant/ShopData"
 import { useCart } from "@/hooks/useCart"
 import Drawer from "@/shared/Drawer/Drawer"
 import { CancelOutlined } from "@mui/icons-material"
-import { Box, Divider, Grid, IconButton, Typography } from "@mui/material"
+import {
+  Box,
+  Divider,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { useNavigate } from "react-router-dom"
 
+import AddIcon from "@mui/icons-material/Add"
+import RemoveIcon from "@mui/icons-material/Remove"
+import { CartItem } from "@/types/MarketItemTypes"
+
 function CartDrawer() {
-  const { cart, removeFromCart } = useCart()
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart()
   const navigate = useNavigate()
 
-  const cartData = ShopData.filter((item) =>
-    cart.find((cartItem) => cartItem.id === item.id)
-  )
+  const cartData: CartItem[] = cart.map((cartItem) => {
+    const product = ShopData.find((item) => item.id === cartItem.id)
+    return {
+      ...product!,
+      quantity: cartItem.quantity,
+    }
+  })
 
   const handleCheckout = () => {
     navigate("/checkout")
@@ -99,7 +114,10 @@ function CartDrawer() {
                       lineHeight: "25px",
                     }}
                   >
-                    Color: <span style={{ color: "#807D7E" }}>Yellow</span>
+                    Price:{" "}
+                    <span style={{ color: "#807D7E" }}>
+                      ${item.price * item.quantity}
+                    </span>
                   </Typography>
                   <Typography
                     sx={{
@@ -115,12 +133,29 @@ function CartDrawer() {
                     </span>
                   </Typography>
                 </Box>
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
                 <IconButton
                   onClick={() => removeFromCart(item.id)}
                   sx={{ display: { xs: "none", sm: "flex" }, ml: "auto" }}
                 >
                   <CancelOutlined />
                 </IconButton>
+                <Stack direction="row" spacing={1}>
+                  <IconButton onClick={() => increaseQuantity(item.id)}>
+                    <AddIcon />
+                  </IconButton>
+                  <IconButton onClick={() => decreaseQuantity(item.id)}>
+                    <RemoveIcon />
+                  </IconButton>
+                </Stack>
               </Box>
             </Box>
             <Divider sx={{ mt: 1, color: "#E6E6E6" }} />

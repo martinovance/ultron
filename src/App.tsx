@@ -25,7 +25,13 @@ function App() {
           <DrawerContextProvider>
             <LikedItemsProvider>
               <BrowserRouter>
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    minHeight: "100vh",
+                  }}
+                >
                   <MobileNav />
                   <Appbar />
                   <Navbar />
@@ -34,7 +40,9 @@ function App() {
                     <Route path="wishlist" element={<Wishlist />} />
                     <Route path="checkout" element={<Payment />} />
                   </Routes>
-                  <Footer />
+                  <Box sx={{ mt: "auto" }}>
+                    <Footer />
+                  </Box>
                   <CartDrawer />
                 </Box>
               </BrowserRouter>

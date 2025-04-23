@@ -6,6 +6,7 @@ import Testimony from "@/modules/Home/components/Testimony"
 import Process from "@/modules/Home/components/Process"
 import Blog from "@/modules/Home/components/Blog"
 import Hero from "@/modules/Home/components/Hero"
+import Faq from "./components/Faq"
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <ColorTab />
       <Testimony />
       <Process />
+      <Faq />
       <Blog />
     </Box>
   )

@@ -15,11 +15,12 @@ function Wishlist() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         px: { xs: "16px", sm: "70px" },
         gap: 2,
         mt: 20,
+        minHeight: "60vh",
       }}
     >
       <Grid
